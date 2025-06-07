@@ -66,12 +66,13 @@ body{
     flex: 1;
 }
 li{
-    height: 40px;
+    height: 100%;
     border-bottom: 1px solid gray;
     border-color: hsla(0,0%,100%,.1);
-    padding: 5px;
+    padding: 8px;
     font-size: 14px;
     margin-bottom: 8px;
+    gap: 10px;
 }
 #date-div{
     display: flex;
@@ -252,6 +253,15 @@ li{
     padding: 6px 12px 7px;
     border: 1px solid transparent;
     border-radius: 3px;
+}
+
+.task-sections{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.task-sections>h1{
+    font-weight: 600;
 }
 
 

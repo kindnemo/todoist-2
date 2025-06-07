@@ -1,11 +1,13 @@
 const contentDiv = document.getElementById("content");
 const homeBtn = document.getElementById("home-btn");
+let taskAddBtn, addTaskInput, addTaskDesc, dateBtn, priorityBtn, tasksLi, addTaskDiv, emptyDiv;  //Making higher scope variables to export it in different modules j
+
 
 
 // Generates The Homepage
 function generate_home(){
     // IMAGES 
-    // import addSVGImg from "./images/undraw_to_do_re_jaef dark.svg"
+    // import addSVGImg from "./images/undraw_to_do_re_jaef dark.svg
 
     
     const taskDiv = document.createElement("div");
@@ -13,22 +15,22 @@ function generate_home(){
     const dateDiv = document.createElement("div");
     const todayh1 = document.createElement("h1");
     const dateSpan = document.createElement("span");
-    const tasksLi = document.createElement("ul");
+    tasksLi = document.createElement("ul");
     const taskAddForm = document.createElement("div");
-    const addTaskDiv = document.createElement("div");
-    const addTaskInput = document.createElement("input");
-    const addTaskDesc = document.createElement("textarea")
-    const dateBtn = document.createElement("input");
+    addTaskDiv = document.createElement("div");
+    addTaskInput = document.createElement("input");
+    addTaskDesc = document.createElement("textarea")
+    dateBtn = document.createElement("input");
     const priorityBtnLi = ["High Priority", "Medium Priority", "Low Priority", "Regular Priority"];
-    const priorityBtn = document.createElement("select");
+    priorityBtn = document.createElement("select");
     const finalBtnsDiv = document.createElement("div");
-    const taskAddBtn = document.createElement("button");
+    taskAddBtn = document.createElement("button");
     const cancelBtn = document.createElement("button");
     const listTaskDiv = document.createElement("div");
     const addBtnIcn = document.createElement("span");
     const addTaskText = document.createElement("span");
     const emptyDivContainer = document.createElement("div");
-    const emptyDiv = document.createElement("div");
+    emptyDiv = document.createElement("div");
     const taskSVG = document.createElement("img");
     const emptyPara = document.createElement("p");
     const finalBtn = document.createElement("button");
@@ -141,7 +143,20 @@ function generate_home(){
     // Task div
     taskDiv.append(mainUi, emptyDivContainer);
     contentDiv.append(taskDiv);
+
+    function toggleDisplay(){
+        addTaskDiv.classList.toggle("display-toggle");
+        listTaskDiv.classList.toggle("display-toggle");
+    }
+    listTaskDiv.addEventListener("click", toggleDisplay);
+    cancelBtn.addEventListener("click", toggleDisplay);
+    taskAddBtn.addEventListener("click", toggleDisplay);
+
+
+    // Making variables global for exporting 
 };
 
-window.onload = generate_home;
+window.onload = generate_home();
 
+// EXPORTED MODULES
+export {taskAddBtn, addTaskInput, addTaskDesc, dateBtn, priorityBtn, tasksLi, addTaskDiv, emptyDiv};
